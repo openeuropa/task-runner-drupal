@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace OpenEuropa\TaskRunner\Commands;
+namespace OpenEuropa\TaskRunnerDrupal\Commands;
 
 use Consolidation\AnnotatedCommand\CommandData;
 use NuvoleWeb\Robo\Task as NuvoleWebTasks;
+use OpenEuropa\TaskRunner\Commands\AbstractCommands;
 use OpenEuropa\TaskRunner\Contract\FilesystemAwareInterface;
 use OpenEuropa\TaskRunner\Tasks as TaskRunnerTasks;
 use OpenEuropa\TaskRunner\Traits as TaskRunnerTraits;

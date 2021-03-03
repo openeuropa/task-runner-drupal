@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace OpenEuropa\TaskRunner\Tests\Commands;
+namespace OpenEuropa\TaskRunnerDrupal\Tests\Commands;
 
 use OpenEuropa\TaskRunner\TaskRunner;
-use OpenEuropa\TaskRunner\Tests\AbstractTest;
+use OpenEuropa\TaskRunnerDrupal\Tests\AbstractTest;
 use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Yaml\Yaml;
@@ -62,7 +62,7 @@ class DrupalCommandsTest extends AbstractTest
         $exit_code = $runner->run();
 
         // Check if an error is returned when this is expected.
-        $this->assertEquals($expected_error, $exit_code != 0);
+        $this->assertEquals($expected_error, $exit_code !== 0);
 
         // Check site directory.
         $sitesSubdirPermissions = substr(sprintf('%o', fileperms($sitesSubdir)), -4);

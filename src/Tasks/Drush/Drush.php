@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OpenEuropa\TaskRunner\Tasks\Drush;
+namespace OpenEuropa\TaskRunnerDrupal\Tasks\Drush;
 
 use Robo\Task\Base\Exec;
 

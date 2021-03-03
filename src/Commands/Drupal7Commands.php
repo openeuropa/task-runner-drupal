@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OpenEuropa\TaskRunner\Commands;
+namespace OpenEuropa\TaskRunnerDrupal\Commands;
 
 /**
  * Class Drupal7Commands.
