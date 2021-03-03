@@ -1,6 +1,6 @@
 /vendor/
-/tests/sandbox
-grumphp.yml
+/tests/sandbox/*
+!/tests/sandbox/.gitkeep
 phpunit.xml
 composer.lock
 behat.yml
