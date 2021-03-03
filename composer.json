@@ -7,7 +7,7 @@
     "require": {
         "php": "~7.1",
         "nuvoleweb/robo-config": "^0.2.1",
-        "openeuropa/task-runner": "dev-ISAICP-6037 as dev-ISAICP-6036"
+        "openeuropa/task-runner": "dev-ISAICP-6036 as dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "~6.0||~7.0",
