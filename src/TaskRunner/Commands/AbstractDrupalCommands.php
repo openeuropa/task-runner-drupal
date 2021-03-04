@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace OpenEuropa\TaskRunnerDrupal\Commands;
+namespace OpenEuropa\TaskRunnerDrupal\TaskRunner\Commands;
 
 use Consolidation\AnnotatedCommand\CommandData;
 use NuvoleWeb\Robo\Task as NuvoleWebTasks;
 use OpenEuropa\TaskRunner\Commands\AbstractCommands;
 use OpenEuropa\TaskRunner\Contract\FilesystemAwareInterface;
+use OpenEuropa\TaskRunnerDrupal\Tasks as TaskRunnerDrupalTasks;
 use OpenEuropa\TaskRunner\Tasks as TaskRunnerTasks;
 use OpenEuropa\TaskRunner\Traits as TaskRunnerTraits;
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
@@ -22,11 +23,11 @@ abstract class AbstractDrupalCommands extends AbstractCommands implements Filesy
     use TaskRunnerTraits\ConfigurationTokensTrait;
     use TaskRunnerTraits\FilesystemAwareTrait;
     use TaskRunnerTasks\CollectionFactory\loadTasks;
-    use TaskRunnerTasks\Drush\loadTasks;
+    use TaskRunnerDrupalTasks\Drush\loadTasks;
     use NuvoleWebTasks\Config\Php\loadTasks;
 
     /**
-     * @return \OpenEuropa\TaskRunner\Commands\Drupal7Commands|\OpenEuropa\TaskRunner\Commands\Drupal8Commands
+     * @return \OpenEuropa\TaskRunnerDrupal\TaskRunner\Commands\Drupal7Commands|\OpenEuropa\TaskRunnerDrupal\TaskRunner\Commands\Drupal8Commands
      */
     public function getDrupal()
     {
@@ -40,7 +41,7 @@ abstract class AbstractDrupalCommands extends AbstractCommands implements Filesy
      */
     public function getConfigurationFile()
     {
-        return __DIR__ . '/../../config/commands/drupal.yml';
+        return __DIR__ . '/../../../config/commands/drupal.yml';
     }
 
     /**
@@ -344,7 +345,7 @@ abstract class AbstractDrupalCommands extends AbstractCommands implements Filesy
      * The settings override file name can be changed in the Task Runner
      * configuration by setting the "drupal.site.settings_override_file" property.
      *
-     * @command drupal:settings-setup
+     * @command drupal:setup-settings
      *
      * @option root                     Drupal root.
      * @option sites-subdir             Drupal site subdirectory.
@@ -399,7 +400,7 @@ abstract class AbstractDrupalCommands extends AbstractCommands implements Filesy
      *
      * This command will set the necessary permissions on the default folder.
      *
-     * @command drupal:permissions-setup
+     * @command drupal:setup-permissions
      *
      * @option root                     Drupal root.
      * @option sites-subdir             Drupal site subdirectory.

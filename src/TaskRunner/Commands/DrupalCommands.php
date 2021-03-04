@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace OpenEuropa\TaskRunnerDrupal\Commands;
+namespace OpenEuropa\TaskRunnerDrupal\TaskRunner\Commands;
 
 /**
  * Base class for commands that interact with a Drupal installation.

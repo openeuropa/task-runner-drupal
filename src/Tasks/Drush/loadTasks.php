@@ -12,7 +12,7 @@ namespace OpenEuropa\TaskRunnerDrupal\Tasks\Drush;
 trait loadTasks
 {
     /**
-     * @return \OpenEuropa\TaskRunner\Tasks\Drush\Drush
+     * @return \OpenEuropa\TaskRunnerDrupal\Tasks\Drush\Drush
      */
     public function taskDrush($command)
     {
