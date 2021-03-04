@@ -23,7 +23,6 @@ class DrupalConfigProvider implements ConfigProviderInterface
     public static function provide(Config $config): void
     {
         static::importFromFiles($config, [
-            __DIR__ . '/../../../config/commands/base.yml',
             __DIR__ . '/../../../config/commands/drupal.yml',
         ]);
     }
