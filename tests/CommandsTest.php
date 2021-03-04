@@ -72,8 +72,7 @@ class CommandsTest extends AbstractTest
 function $fct() {}
 EOF;
 
-        $config_override_filename = isset($config['drupal']['site']['settings_override_file']) ?
-        $config['drupal']['site']['settings_override_file'] :
+        $config_override_filename = $config['drupal']['site']['settings_override_file'] ??
         'settings.override.php';
 
         // Add the dummy PHP code to the config override file.
@@ -123,8 +122,7 @@ EOF;
 function $fct() {}
 EOF;
 
-        $config_override_filename = isset($config['drupal']['site']['settings_override_file']) ?
-        $config['drupal']['site']['settings_override_file'] :
+        $config_override_filename = $config['drupal']['site']['settings_override_file'] ??
         'settings.override.php';
 
         // Add the dummy PHP code to the config override file.
@@ -180,8 +178,7 @@ EOF;
 function $fct() {}
 EOF;
 
-        $config_override_filename = isset($config['drupal']['site']['settings_override_file']) ?
-        $config['drupal']['site']['settings_override_file'] :
+        $config_override_filename = $config['drupal']['site']['settings_override_file'] ??
         'settings.override.php';
 
         // Add the dummy PHP code to the config override file.
