@@ -8,9 +8,9 @@ use Consolidation\AnnotatedCommand\CommandData;
 use NuvoleWeb\Robo\Task as NuvoleWebTasks;
 use OpenEuropa\TaskRunner\Commands\AbstractCommands;
 use OpenEuropa\TaskRunner\Contract\FilesystemAwareInterface;
-use OpenEuropa\TaskRunnerDrupal\Tasks as TaskRunnerDrupalTasks;
 use OpenEuropa\TaskRunner\Tasks as TaskRunnerTasks;
 use OpenEuropa\TaskRunner\Traits as TaskRunnerTraits;
+use OpenEuropa\TaskRunnerDrupal\Tasks as TaskRunnerDrupalTasks;
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Yaml\Yaml;
@@ -345,7 +345,8 @@ abstract class AbstractDrupalCommands extends AbstractCommands implements Filesy
         'settings-override-file' => InputOption::VALUE_REQUIRED,
         'force' => false,
         'skip-permissions-setup' => false,
-    ]) {
+    ])
+    {
         trigger_error("The 'drupal:settings-setup' command is deprecated in openeuropa/task-runner:1.0.0 and will be removed * in openeuropa/task-runner:2.0.0. Use the 'drupal:setup-settings' command instead.", E_USER_DEPRECATED);
         return $this->setupSettings($options);
     }
