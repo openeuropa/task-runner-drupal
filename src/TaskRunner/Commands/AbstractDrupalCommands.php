@@ -205,7 +205,7 @@ abstract class AbstractDrupalCommands extends AbstractCommands implements Filesy
             $this->sitePreInstall($options),
         ];
         if (!$options['skip-permissions-setup']) {
-            $collection[] = $this->permissionsSetup($options);
+            $collection[] = $this->setupPermissions($options);
         }
         $collection[] = $task->siteInstall();
         $collection[] = $this->sitePostInstall($options);
@@ -416,7 +416,7 @@ abstract class AbstractDrupalCommands extends AbstractCommands implements Filesy
         )->setConfigKey('drupal.settings');
 
         if (!$options['skip-permissions-setup']) {
-            $collection[] = $this->permissionsSetup($options);
+            $collection[] = $this->setupPermissions($options);
         }
 
         return $this->collectionBuilder()->addTaskList($collection);
