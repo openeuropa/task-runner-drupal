@@ -325,6 +325,32 @@ abstract class AbstractDrupalCommands extends AbstractCommands implements Filesy
     }
 
     /**
+     * [deprecated] Setup Drupal settings overrides.
+     *
+     * @command drupal:settings-setup
+     *
+     * @option root                     Drupal root.
+     * @option sites-subdir             Drupal site subdirectory.
+     * @option settings-override-file   Drupal site settings override filename.
+     * @option force                    Drupal force generation of a new settings.php.
+     * @option skip-permissions-setup   Drupal skip permissions setup.
+     *
+     * @param array $options
+     *
+     * @return \Robo\Collection\CollectionBuilder
+     */
+    public function settingsSetup(array $options = [
+        'root' => InputOption::VALUE_REQUIRED,
+        'sites-subdir' => InputOption::VALUE_REQUIRED,
+        'settings-override-file' => InputOption::VALUE_REQUIRED,
+        'force' => false,
+        'skip-permissions-setup' => false,
+    ]) {
+        trigger_error("The 'drupal:settings-setup' command is deprecated in openeuropa/task-runner:1.0.0 and will be removed * in openeuropa/task-runner:2.0.0. Use the 'drupal:setup-settings' command instead.", E_USER_DEPRECATED);
+        return $this->setupSettings($options);
+    }
+
+    /**
      * Setup Drupal settings overrides.
      *
      * This command will:
@@ -357,7 +383,7 @@ abstract class AbstractDrupalCommands extends AbstractCommands implements Filesy
      *
      * @return \Robo\Collection\CollectionBuilder
      */
-    public function settingsSetup(array $options = [
+    public function setupSettings(array $options = [
         'root' => InputOption::VALUE_REQUIRED,
         'sites-subdir' => InputOption::VALUE_REQUIRED,
         'settings-override-file' => InputOption::VALUE_REQUIRED,
@@ -396,6 +422,30 @@ abstract class AbstractDrupalCommands extends AbstractCommands implements Filesy
     }
 
     /**
+     * [deprecated] Setup Drupal permissions.
+     *
+     * This command will set the necessary permissions on the default folder.
+     *
+     * @command drupal:permissions-setup
+     *
+     * @option root                     Drupal root.
+     * @option sites-subdir             Drupal site subdirectory.
+     * @option skip-permissions-setup   Drupal skip permissions setup.
+     *
+     * @param array $options
+     *
+     * @return \Robo\Collection\CollectionBuilder
+     */
+    public function permissionsSetup(array $options = [
+        'root' => InputOption::VALUE_REQUIRED,
+        'sites-subdir' => InputOption::VALUE_REQUIRED,
+    ])
+    {
+        trigger_error("The 'drupal:permissions-setup' command is deprecated in openeuropa/task-runner:1.0.0 and will be removed * in openeuropa/task-runner:2.0.0. Use the 'drupal:setup-permissions' command instead.", E_USER_DEPRECATED);
+        return $this->setupPermissions($options);
+    }
+
+    /**
      * Setup Drupal permissions.
      *
      * This command will set the necessary permissions on the default folder.
@@ -410,7 +460,7 @@ abstract class AbstractDrupalCommands extends AbstractCommands implements Filesy
      *
      * @return \Robo\Collection\CollectionBuilder
      */
-    public function permissionsSetup(array $options = [
+    public function setupPermissions(array $options = [
         'root' => InputOption::VALUE_REQUIRED,
         'sites-subdir' => InputOption::VALUE_REQUIRED,
     ])
