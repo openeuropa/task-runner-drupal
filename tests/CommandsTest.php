@@ -54,7 +54,7 @@ class CommandsTest extends AbstractTest
         mkdir($this->getSandboxRoot() . '/build/sites/' . $sites_subdir . '/', 0777, true);
         file_put_contents($this->getSandboxRoot() . '/build/sites/' . $sites_subdir . '/default.settings.php', '');
 
-        $input = new StringInput('drupal:settings-setup --working-dir=' . $this->getSandboxRoot());
+        $input = new StringInput('drupal:setup-settings --working-dir=' . $this->getSandboxRoot());
         $runner = new TaskRunner($input, new BufferedOutput(), $this->getClassLoader());
         $runner->run();
 
@@ -104,7 +104,7 @@ EOF;
         mkdir($this->getSandboxRoot() . '/build/sites/' . $sites_subdir . '/', 0777, true);
         file_put_contents($this->getSandboxRoot() . '/build/sites/' . $sites_subdir . '/default.settings.php', '');
 
-        $input = new StringInput('drupal:settings-setup --working-dir=' . $this->getSandboxRoot());
+        $input = new StringInput('drupal:setup-settings --working-dir=' . $this->getSandboxRoot());
         $runner = new TaskRunner($input, new BufferedOutput(), $this->getClassLoader());
         $runner->run();
 
@@ -156,10 +156,10 @@ EOF;
         $filename = $this->getSandboxRoot() . '/build/sites/' . $sites_subdir . '/settings.php';
         file_put_contents($filename, '# Already existing file.');
 
-        $input = new StringInput('drupal:settings-setup --working-dir=' . $this->getSandboxRoot());
+        $input = new StringInput('drupal:setup-settings --working-dir=' . $this->getSandboxRoot());
 
         if (true === $config['drupal']['site']['force']) {
-            $input = new StringInput('drupal:settings-setup --working-dir=' . $this->getSandboxRoot() . ' --force');
+            $input = new StringInput('drupal:setup-settings --working-dir=' . $this->getSandboxRoot() . ' --force');
         }
         $runner = new TaskRunner($input, new BufferedOutput(), $this->getClassLoader());
         $runner->run();

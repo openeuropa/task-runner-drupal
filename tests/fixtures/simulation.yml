@@ -216,13 +216,13 @@
     - "WriteConfiguration('web/sites/default/drushrc.php'"
     - "File\\Write('./drush/drush.yml')"
 
-- command: 'drupal:settings-setup'
+- command: 'drupal:setup-settings'
   configuration: []
   composer: ''
   contains:
     - "WriteConfiguration('build/sites/default/settings.override.php'"
 
-- command: 'drupal:settings-setup --root=web'
+- command: 'drupal:setup-settings --root=web'
   configuration: []
   composer: ''
   contains:
@@ -239,7 +239,7 @@
         - { task: "symlink", from: "../../custom/themes", to: "${drupal.root}/themes/custom" }
         - { task: "symlink", from: "../../custom/profiles", to: "${drupal.root}/profiles/custom" }
         - { task: "run", command: "drupal:drush-setup" }
-        - { task: "run", command: "drupal:settings-setup" }
+        - { task: "run", command: "drupal:setup-settings" }
         - { task: "run", command: "setup:behat" }
         - { task: "run", command: "setup:phpunit" }
       setup:behat:
@@ -253,7 +253,7 @@
     - "{ task: symlink, from: ../../custom/themes, to: web/themes/custom }"
     - "{ task: symlink, from: ../../custom/profiles, to: web/profiles/custom }"
     - "{ task: run, command: 'drupal:drush-setup' }"
-    - "{ task: run, command: 'drupal:settings-setup' }"
+    - "{ task: run, command: 'drupal:setup-settings' }"
     - "{ task: run, command: 'setup:behat' }"
     - "{ task: run, command: 'setup:phpunit' }"
 

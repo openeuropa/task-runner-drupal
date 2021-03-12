@@ -5,7 +5,7 @@
       settings:
         sites-subdir: "build/sites/default/"
         settings_file: "settings.php"
-  command: "drupal:permissions-setup"
+  command: "drupal:setup-permissions"
   expected_error: false
   expected_settings_dir_permission: "0775"
   expected_settings_file_permission: "0664"
