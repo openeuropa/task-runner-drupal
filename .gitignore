@@ -1,0 +1,10 @@
+/vendor/
+/tests/sandbox/*
+!/tests/sandbox/.gitkeep
+phpunit.xml
+composer.lock
+behat.yml
+*.tar.gz
+/.idea/
+runner.yml
+docker-compose.*.yml
